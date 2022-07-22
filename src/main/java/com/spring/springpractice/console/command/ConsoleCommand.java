@@ -1,4 +1,7 @@
 package com.spring.springpractice.console.command;
 
-public class ConsoleCommand {
+public interface ConsoleCommand {
+    boolean canHandle(String input);
+    void handle(String input);
+
 }
