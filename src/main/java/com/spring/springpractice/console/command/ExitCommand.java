@@ -2,7 +2,7 @@ package com.spring.springpractice.console.command;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("injectExit")
 class ExitCommand extends ConsoleCommandBase{
 
     public ExitCommand() {

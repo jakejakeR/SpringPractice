@@ -18,7 +18,7 @@ public class SpringPracticeApplication implements CommandLineRunner {
         SpringApplication.run(SpringPracticeApplication.class, args);
     }
 
-    @Qualifier("injectThisOne")
+    @Qualifier("injectSayHello")
     @Autowired
     private ConsoleCommand command;
 
