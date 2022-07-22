@@ -1,5 +1,7 @@
 package com.spring.springpractice;
 
+import com.spring.springpractice.console.command.ConsoleCommand;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,13 +17,22 @@ public class SpringPracticeApplication implements CommandLineRunner {
         SpringApplication.run(SpringPracticeApplication.class, args);
     }
 
+    @Autowired
+    private ConsoleCommand command;
+
     @Override
     public void run(String... args) throws Exception {
-        printMenu();
         var scanner = new Scanner(new InputStreamReader(System.in));
-        System.out.print("Your choice (number or \"exit\"): ");
-        String userInput = scanner.nextLine().toLowerCase(Locale.ROOT);
-        System.out.println("User input works: " + userInput);
+
+        while(true) {
+            printMenu();
+            System.out.print("Your choice (number or \"exit\"): ");
+            String userInput = scanner.nextLine().toLowerCase(Locale.ROOT);
+            if(command.canHandle(userInput)) {
+                command.handle(userInput);
+            }
+            System.out.println();
+        }
     }
 
     private void printMenu() {

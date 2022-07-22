@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import static java.util.Objects.requireNonNull;
 
-public abstract class ConsoleCommandBase implements ConsoleCommand {
+abstract class ConsoleCommandBase implements ConsoleCommand {
 
     private final String input;
 
