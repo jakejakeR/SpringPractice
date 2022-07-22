@@ -31,15 +31,14 @@ public class SpringPracticeApplication implements CommandLineRunner {
             String userInput = scanner.nextLine().toLowerCase(Locale.ROOT);
             commands.stream()
                     .filter(command -> command.canHandle(userInput))
-                            .forEach(command -> command.handle(userInput));
+                    .forEach(command -> command.handle(userInput));
             System.out.println();
         }
     }
 
+    //TODO set an order of printed commands using Ordered interface on ConsoleCommand interface
     private void printMenu() {
         System.out.println("Provide a command to execute");
-        System.out.println("1. Show all the beans");
-        System.out.println("2. Say hello");
-        System.out.println("exit\n");
+        commands.stream().map(ConsoleCommand::introduce).forEach(System.out::println);
     }
 }

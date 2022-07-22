@@ -21,4 +21,9 @@ class BeansCheckerCommand extends ConsoleCommandBase {
             System.out.println("\t" + (i < 9 ? " " : "") + (i+1) + ". " + beanDefinitionNames[i]);
         }
     }
+
+    @Override
+    public String introduce() {
+        return super.input + ". Show all the beans";
+    }
 }

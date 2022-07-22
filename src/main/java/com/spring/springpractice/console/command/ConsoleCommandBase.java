@@ -6,7 +6,7 @@ import static java.util.Objects.requireNonNull;
 
 abstract class ConsoleCommandBase implements ConsoleCommand {
 
-    private final String input;
+    protected final String input;
 
     protected ConsoleCommandBase(String input) {
         this.input = requireNonNull(input).toLowerCase(Locale.ROOT);

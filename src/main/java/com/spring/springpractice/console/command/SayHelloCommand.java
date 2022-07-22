@@ -13,4 +13,9 @@ class SayHelloCommand extends ConsoleCommandBase{
     public void handle(String input) {
         System.out.println("Hello!");
     }
+
+    @Override
+    public String introduce() {
+        return super.input + ". Say hello";
+    }
 }

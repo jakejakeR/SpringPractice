@@ -13,4 +13,9 @@ class ExitCommand extends ConsoleCommandBase{
     public void handle(String input) {
         System.exit(0);
     }
+
+    @Override
+    public String introduce() {
+        return "exit";
+    }
 }
