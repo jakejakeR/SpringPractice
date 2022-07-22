@@ -2,6 +2,7 @@ package com.spring.springpractice;
 
 import com.spring.springpractice.console.command.ConsoleCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,7 @@ public class SpringPracticeApplication implements CommandLineRunner {
         SpringApplication.run(SpringPracticeApplication.class, args);
     }
 
+    @Qualifier("injectThisOne")
     @Autowired
     private ConsoleCommand command;
 
