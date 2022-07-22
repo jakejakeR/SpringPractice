@@ -2,12 +2,12 @@ package com.spring.springpractice;
 
 import com.spring.springpractice.console.command.ConsoleCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -18,9 +18,8 @@ public class SpringPracticeApplication implements CommandLineRunner {
         SpringApplication.run(SpringPracticeApplication.class, args);
     }
 
-    @Qualifier("injectSayHello")
     @Autowired
-    private ConsoleCommand command;
+    private List<ConsoleCommand> commands;
 
     @Override
     public void run(String... args) throws Exception {
@@ -30,9 +29,9 @@ public class SpringPracticeApplication implements CommandLineRunner {
             printMenu();
             System.out.print("Your choice (number or \"exit\"): ");
             String userInput = scanner.nextLine().toLowerCase(Locale.ROOT);
-            if(command.canHandle(userInput)) {
-                command.handle(userInput);
-            }
+            commands.stream()
+                    .filter(command -> command.canHandle(userInput))
+                            .forEach(command -> command.handle(userInput));
             System.out.println();
         }
     }

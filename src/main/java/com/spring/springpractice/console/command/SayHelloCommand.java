@@ -2,8 +2,8 @@ package com.spring.springpractice.console.command;
 
 import org.springframework.stereotype.Component;
 
-@Component("injectSayHello")
-public class SayHelloCommand extends ConsoleCommandBase{
+@Component()
+class SayHelloCommand extends ConsoleCommandBase{
 
     protected SayHelloCommand() {
         super("2");

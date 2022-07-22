@@ -3,7 +3,7 @@ package com.spring.springpractice.console.command;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-@Component("injectBeanChecker")
+@Component
 class BeansCheckerCommand extends ConsoleCommandBase {
     private final ApplicationContext context;
 
